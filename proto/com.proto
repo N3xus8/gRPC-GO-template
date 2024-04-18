@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option go_package = "./proto";
+
+package communicatio_service;
+
+
+message NoParam{};
+
+message StatusResponse {
+    string message = 1 ;
+};
+
+message ContentList {
+    repeated string content = 1 ;
+};
+
+message ComRequest {
+    string message = 1 ;
+};
+
+message ComResponse {
+    string  message = 1;
+};
+
+message MessagesList {
+    repeated string messages = 1 ; 
+};
+
+
+service ComService{
+
+    // Unary communication
+    rpc Healthz(NoParam) returns (StatusResponse);
+
+    // Server side streaming
+    rpc ComServerStreaming(ContentList) returns (stream ComResponse);
+
+    // Client side streaming
+    rpc ComClientStreaming(stream ComRequest) returns (MessagesList);
+
+    // Bidirectional streaming
+    rpc ComBidirectionalStreaming(stream ComRequest) returns (stream ComResponse);
+
+}
