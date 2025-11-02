@@ -4,7 +4,7 @@ From Youtube:
 
 https://www.youtube.com/watch?v=a6G5-LUlFO4
 
-Could be used a building block/ template for more complex projects.
+Could be used as a building block/ template for more complex projects.
 
 
 Project uses gRPC in 4 different modes:
